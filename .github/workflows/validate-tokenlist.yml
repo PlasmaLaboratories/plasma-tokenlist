@@ -1,0 +1,39 @@
+name: Validate Token List
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+env:
+  LIST_FILE: plasma.tokenlist.json
+  ENABLE_LINK_CHECKS: 'false'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation deps (AJV + formats + web3-utils)
+        run: |
+          npm i -D ajv-cli ajv-formats web3-utils
+
+      - name: Schema validation (Uniswap Token List)
+        run: |
+          npx ajv-cli validate -c ajv-formats -s https://uniswap.org/tokenlist.schema.json -d "$LIST_FILE"
+
+      - name: Checksum + duplicate check
+        run: |
+          node scripts/validate/checksum.js "$LIST_FILE"
+
+      - name: Logo link checks (optional)
+        if: ${{ env.ENABLE_LINK_CHECKS == 'true' }}
+        run: |
+          node scripts/validate/links.js "$LIST_FILE"

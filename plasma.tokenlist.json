@@ -1,0 +1,32 @@
+{
+  "name": "Plasma Default Token List",
+  "timestamp": "2025-09-07T14:37:45Z",
+  "version": { "major": 0, "minor": 1, "patch": 0 },
+  "keywords": ["plasma", "xpl", "mainnet", "testnet", "devnet"],
+  "tokens": [
+    {
+      "chainId": 9745,
+      "address": "0x0000000000000000000000000000000000000000",
+      "decimals": 18,
+      "name": "XPL (placeholder)",
+      "symbol": "XPL",
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9745/XPL.svg"
+    },
+    {
+      "chainId": 9746,
+      "address": "0x0000000000000000000000000000000000000000",
+      "decimals": 18,
+      "name": "XPL (placeholder)",
+      "symbol": "XPL",
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9746/XPL.svg"
+    },
+    {
+      "chainId": 9747,
+      "address": "0x0000000000000000000000000000000000000000",
+      "decimals": 18,
+      "name": "XPL (placeholder)",
+      "symbol": "XPL",
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9747/XPL.svg"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+# Local reference repos (do not push)
+token-lists/
+chains/
+
+# Node artifacts
+node_modules/
+
+# MacOS
+.DS_Store
+
+# Ignore all root-level Markdown except README.md
+/*.md
+!/README.md

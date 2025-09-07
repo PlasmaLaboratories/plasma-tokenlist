@@ -7,7 +7,7 @@ on:
 
 env:
   LIST_FILE: plasma.tokenlist.json
-  ENABLE_LINK_CHECKS: 'false'
+  ENABLE_LINK_CHECKS: 'true'
 
 jobs:
   validate:

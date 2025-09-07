@@ -1,32 +1,41 @@
 {
   "name": "Plasma Default Token List",
-  "timestamp": "2025-09-07T14:37:45Z",
-  "version": { "major": 0, "minor": 1, "patch": 0 },
+  "timestamp": "2025-09-07T16:21:27Z",
+  "version": { "major": 1, "minor": 0, "patch": 0 },
   "keywords": ["plasma", "xpl", "mainnet", "testnet", "devnet"],
+  "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9745/XPL.svg",
   "tokens": [
     {
       "chainId": 9745,
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
       "decimals": 18,
-      "name": "XPL (placeholder)",
+      "name": "Plasma",
       "symbol": "XPL",
-      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9745/XPL.svg"
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9745/XPL.svg"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6100E367285b01F48D07953803A2d8dCA5D19873",
+      "decimals": 18,
+      "name": "Wrapped Plasma",
+      "symbol": "WXPL",
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9745/WXPL.svg"
     },
     {
       "chainId": 9746,
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
       "decimals": 18,
-      "name": "XPL (placeholder)",
+      "name": "Plasma",
       "symbol": "XPL",
-      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9746/XPL.svg"
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9746/XPL.svg"
     },
     {
       "chainId": 9747,
-      "address": "0x0000000000000000000000000000000000000000",
+      "address": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
       "decimals": 18,
-      "name": "XPL (placeholder)",
+      "name": "Plasma",
       "symbol": "XPL",
-      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-token-list/main/logos/9747/XPL.svg"
+      "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9747/XPL.svg"
     }
   ]
 }

@@ -25,9 +25,17 @@ jobs:
         run: |
           npm i -D ajv-cli ajv-formats web3-utils
 
+      - name: Install Uniswap token-lists package
+        run: |
+          npm i -D @uniswap/token-lists
+
+      - name: Write local schema file from package
+        run: |
+          node -e "const {schema}=require('@uniswap/token-lists');require('fs').writeFileSync('tokenlist.schema.json', JSON.stringify(schema, null, 2));"
+
       - name: Schema validation (Uniswap Token List)
         run: |
-          npx ajv-cli validate -c ajv-formats -s https://uniswap.org/tokenlist.schema.json -d "$LIST_FILE"
+          npx ajv-cli validate -c ajv-formats -s tokenlist.schema.json -d "$LIST_FILE"
 
       - name: Checksum + duplicate check
         run: |

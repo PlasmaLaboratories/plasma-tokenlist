@@ -1,6 +1,7 @@
 # Local reference repos (do not push)
 token-lists/
 chains/
+vendor/
 
 # Node artifacts
 node_modules/

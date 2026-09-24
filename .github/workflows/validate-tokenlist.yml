@@ -31,7 +31,8 @@ jobs:
 
       - name: Write local schema file from package
         run: |
-          node -e "const {schema}=require('@uniswap/token-lists');require('fs').writeFileSync('tokenlist.schema.json', JSON.stringify(schema, null, 2));"
+          # beta.35 publishes src/tokenlist.schema.json but not dist/index.js, so require() fails.
+          cp node_modules/@uniswap/token-lists/src/tokenlist.schema.json tokenlist.schema.json
 
       - name: Schema validation (Uniswap Token List)
         run: |

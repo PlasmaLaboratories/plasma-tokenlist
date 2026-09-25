@@ -43,7 +43,8 @@ Chain metadata is also published in ethereum-lists/chains for these IDs.
 - Validation covers:
   - Uniswap JSON schema
   - EIP‑55 checksums and duplicate detection
-  - Logo links (HTTP 200)
+  - SVG syntax
+  - Logo links (HTTP 2xx)
 
 ## Logos
 - Stored locally under `logos/<chainId>/<address>.(png|svg)` and referenced via raw GitHub URLs.

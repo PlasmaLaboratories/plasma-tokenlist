@@ -10,7 +10,7 @@ For example (using the same image for all chains/tokens initially):
 
 For dark surfaces, use `logos/<chainId>/XPL-dark.svg` (white circle, black mark) on chains 9745, 9746, or 9747. The token list continues to reference `XPL.svg`.
 
-Notes
+## Notes
 
 - Suggested size: 64×64 (SVG/PNG). Higher resolutions (128–256) are fine.
 - Use clear backgrounds and high contrast. Avoid artifacts.

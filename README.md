@@ -24,13 +24,11 @@ Chain metadata is also published in ethereum-lists/chains for these IDs.
 
 ## Usage
 - Wallets/dApps that support Uniswap Token Lists can add the list by URL (above).
-- Local validation (using the same dependencies as [CI](.github/workflows/validate-tokenlist.yml)):
+- Local validation (using the same dependency lockfile as [CI](.github/workflows/validate-tokenlist.yml)):
 
   ```sh
-  npm i -D --save-exact ajv@8.20.0 ajv-formats@3.0.1 web3-utils@4.3.3
-  npm i -D --save-exact @uniswap/token-lists@1.0.0-beta.35
-  cp node_modules/@uniswap/token-lists/src/tokenlist.schema.json tokenlist.schema.json
-  node scripts/validate/schema.js plasma.tokenlist.json tokenlist.schema.json
+  npm ci --ignore-scripts
+  node scripts/validate/schema.js plasma.tokenlist.json node_modules/@uniswap/token-lists/src/tokenlist.schema.json
   node scripts/validate/checksum.js plasma.tokenlist.json
   node scripts/validate/links.js plasma.tokenlist.json
   ```
@@ -45,6 +43,7 @@ Chain metadata is also published in ethereum-lists/chains for these IDs.
   - EIP‑55 checksums and duplicate detection
   - SVG syntax
   - Logo links (HTTP 2xx)
+- Dependabot proposes GitHub Action and npm dependency updates weekly after a seven-day cooldown. CI uses the committed lockfile; Node tracks patch releases within the 24 LTS line.
 
 ## Logos
 - Stored locally under `logos/<chainId>/<address>.(png|svg)` and referenced via raw GitHub URLs.

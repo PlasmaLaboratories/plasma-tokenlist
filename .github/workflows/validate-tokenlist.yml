@@ -36,25 +36,16 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '24.21.0'
+          node-version: '24'
           package-manager-cache: false
 
-      - name: Install validation deps (Ajv + formats + web3-utils)
+      - name: Install validation dependencies
         run: |
-          npm i -D --save-exact ajv@8.20.0 ajv-formats@3.0.1 web3-utils@4.3.3
-
-      - name: Install Uniswap token-lists package
-        run: |
-          npm i -D --save-exact @uniswap/token-lists@1.0.0-beta.35
-
-      - name: Write local schema file from package
-        run: |
-          # beta.35 publishes src/tokenlist.schema.json but not dist/index.js, so require() fails.
-          cp node_modules/@uniswap/token-lists/src/tokenlist.schema.json tokenlist.schema.json
+          npm ci --ignore-scripts
 
       - name: Schema validation (Uniswap Token List)
         run: |
-          node scripts/validate/schema.js "$LIST_FILE" tokenlist.schema.json
+          node scripts/validate/schema.js "$LIST_FILE" node_modules/@uniswap/token-lists/src/tokenlist.schema.json
 
       - name: Checksum + duplicate check
         run: |

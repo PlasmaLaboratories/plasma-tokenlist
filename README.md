@@ -24,9 +24,16 @@ Chain metadata is also published in ethereum-lists/chains for these IDs.
 
 ## Usage
 - Wallets/dApps that support Uniswap Token Lists can add the list by URL (above).
-- Programmatic validation example:
-  - Schema: `npx ajv-cli validate -s token-lists/src/tokenlist.schema.json -d plasma.tokenlist.json`
-  - Checksums: `node -e "const {toChecksumAddress}=require('web3-utils');const l=require('./plasma.tokenlist.json');for(const t of l.tokens){if(t.address!==toChecksumAddress(t.address))throw new Error('Bad checksum '+t.address)}console.log('OK')"`
+- Local validation (using the same dependencies as [CI](.github/workflows/validate-tokenlist.yml)):
+
+  ```sh
+  npm i -D --save-exact ajv@8.20.0 ajv-formats@3.0.1 web3-utils@4.3.3
+  npm i -D --save-exact @uniswap/token-lists@1.0.0-beta.35
+  cp node_modules/@uniswap/token-lists/src/tokenlist.schema.json tokenlist.schema.json
+  node scripts/validate/schema.js plasma.tokenlist.json tokenlist.schema.json
+  node scripts/validate/checksum.js plasma.tokenlist.json
+  node scripts/validate/links.js plasma.tokenlist.json
+  ```
 
 ## Versioning & Validation
 - Versioning follows Uniswap’s SemVer guidance:
@@ -42,6 +49,7 @@ Chain metadata is also published in ethereum-lists/chains for these IDs.
 - Stored locally under `logos/<chainId>/<address>.(png|svg)` and referenced via raw GitHub URLs.
 - Preference: issuer-approved SVG; otherwise Trust Wallet PNG; fallback to placeholder until official art is available.
 - XPL and WXPL use the same unified logo.
+- For dark surfaces, use `logos/<chainId>/XPL-dark.svg` (white circle, black mark). Token list `logoURI` values continue to use `XPL.svg`.
 
 ## Contributing
 - Open an issue/PR for additions or corrections.

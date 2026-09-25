@@ -5,6 +5,9 @@ on:
     branches: [ main, master ]
   pull_request:
 
+permissions:
+  contents: read
+
 env:
   LIST_FILE: plasma.tokenlist.json
   ENABLE_LINK_CHECKS: 'true'
@@ -15,11 +18,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check SVG assets
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from xml.etree import ElementTree
+
+          for svg_file in sorted(Path('logos').rglob('*.svg')):
+              root = ElementTree.parse(svg_file).getroot()
+              if root.tag != '{http://www.w3.org/2000/svg}svg':
+                  raise ValueError(f'{svg_file} is not an SVG')
+          PY
 
       - name: Use Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '24.21.0'
+          package-manager-cache: false
 
       - name: Install validation deps (Ajv + formats + web3-utils)
         run: |

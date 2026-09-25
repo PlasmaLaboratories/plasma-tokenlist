@@ -11,23 +11,23 @@ env:
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Use Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '20'
+          node-version: '24.21.0'
 
-      - name: Install validation deps (AJV + formats + web3-utils)
+      - name: Install validation deps (Ajv + formats + web3-utils)
         run: |
-          npm i -D ajv-cli ajv-formats web3-utils
+          npm i -D --save-exact ajv@8.20.0 ajv-formats@3.0.1 web3-utils@4.3.3
 
       - name: Install Uniswap token-lists package
         run: |
-          npm i -D @uniswap/token-lists
+          npm i -D --save-exact @uniswap/token-lists@1.0.0-beta.35
 
       - name: Write local schema file from package
         run: |
@@ -36,7 +36,7 @@ jobs:
 
       - name: Schema validation (Uniswap Token List)
         run: |
-          npx ajv-cli validate -c ajv-formats -s tokenlist.schema.json -d "$LIST_FILE"
+          node scripts/validate/schema.js "$LIST_FILE" tokenlist.schema.json
 
       - name: Checksum + duplicate check
         run: |

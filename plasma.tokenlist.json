@@ -1,7 +1,7 @@
 {
   "name": "Plasma Default Token List",
   "timestamp": "2025-09-16T11:50:00Z",
-  "version": { "major": 1, "minor": 1, "patch": 0 },
+  "version": { "major": 1, "minor": 1, "patch": 1 },
   "keywords": ["plasma", "xpl", "mainnet", "testnet", "devnet"],
   "logoURI": "https://raw.githubusercontent.com/PlasmaLaboratories/plasma-tokenlist/main/logos/9745/XPL.svg",
   "tokens": [
